@@ -9,7 +9,9 @@ import java.util.Stack;
 
 public class Deck {
 
-    private static Deck ourInstance = new Deck();  // Singleton because only want one instance of this
+    // jack - made final
+    // Good call on making this a singleton!
+    private final static Deck ourInstance = new Deck();  // Singleton because only want one instance of this
 
     public static Deck getInstance() {
         return ourInstance;

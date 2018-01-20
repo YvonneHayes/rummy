@@ -1,7 +1,6 @@
-
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by yvonnehayes on 1/18/18.
@@ -32,11 +31,18 @@ public class Card {
     }
 
     // putting Rank into an Array as well for easier use in Rummy.java
-    public static final List<Rank> rankOrder = Collections.
+    // ---- Jack
+    // Used Arrays.asList
+    // Made an unmodifiable list so that values cannot later be added
+    // Made private
+    //
+    // see - https://en.wikipedia.org/wiki/Flyweight_pattern
+    public static final List<Rank> rankOrder = Collections.unmodifiableList(Arrays.asList(Rank.values()));
 
     // instantiating suit and rank
-    private Suit suit;
-    private Rank rank;
+    // Jack - made final as there isn't a reason to ever mutate
+    private final Suit suit;
+    private final Rank rank;
 
     // creating Card to have both a suit and a rank
     public Card(Suit suit, Rank rank) {
@@ -44,21 +50,15 @@ public class Card {
         this.rank = rank;
     }
 
-    // getters & setters
+    // getters
+    // Jack - removed the setters. This class is really a flyweight, and doesn't need to be modified beyond
+    // initial object creation
 
     public Suit getSuit() {
         return suit;
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
-    }
-
     public Rank getRank() {
         return rank;
-    }
-
-    public void setRank(Rank rank) {
-        this.rank = rank;
     }
 }
