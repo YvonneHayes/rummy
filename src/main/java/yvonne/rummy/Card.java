@@ -1,3 +1,5 @@
+package yvonne.rummy;
+
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -30,7 +32,7 @@ public class Card {
         KING
     }
 
-    // putting Rank into an Array as well for easier use in Rummy.java
+    // putting Rank into an Array as well for easier use in yvonne.rummy.Rummy.java
     // ---- Jack
     // Used Arrays.asList
     // Made an unmodifiable list so that values cannot later be added
@@ -44,7 +46,7 @@ public class Card {
     private final Suit suit;
     private final Rank rank;
 
-    // creating Card to have both a suit and a rank
+    // creating yvonne.rummy.Card to have both a suit and a rank
     public Card(Suit suit, Rank rank) {
         this.suit = suit;
         this.rank = rank;

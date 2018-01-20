@@ -1,4 +1,4 @@
-# Rummy
+# yvonne.rummy.Rummy
 
 This is the start to a rummy game.
 
