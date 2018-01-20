@@ -13,7 +13,16 @@ import static java.util.Arrays.stream;
 /**
  * Created by yvonnehayes on 1/18/18.
  */
+/*
+Jack -
+Deck will work fine in a single threaded model. It will break in a multi threaded model
+There would be two ways to fix this. The traditional java approach and quickest would be back everything with thread safe collections.
 
+Another approach would be to make every class immutable and avoid keeping internal state. This is the more functional approach. It also passes
+the state problem to the caller, which IMHO is better as the caller should best understand the use case.
+In this model each return call would return a new instance of Deck with the new state. I have made most of the methods fluent, so it would be a minor
+refactor to do this.
+ */
 public class Deck {
 
     // jack - made final
@@ -38,11 +47,16 @@ public class Deck {
         deck.addAll(base);
     }
 
+    // jack -
+    // I made deck fluent so you can perform operations like this:
+    //
+    // Deck.getInstance().shuffle.drawCard(p, true).refresh()
+
     public Deck refresh() {
         deck.clear();
         discard.clear();
         deck.addAll(base);
-        return this; // make fluent
+        return this; // jack - make fluent
     }
 
     public Collection<Card> cards() {
@@ -60,7 +74,7 @@ public class Deck {
                 player.add(discard.pop());      // take the top (last discarded) card from discard pile
             }
         }
-        return this; // make fluent
+        return this; // jack - make fluent
     }
 
     // card gets removed from player and added to discard pile
@@ -69,18 +83,18 @@ public class Deck {
             discard.add(card);
             player.remove(card);
         }
-        return this; // make fluent
+        return this; // jack - make fluent
     }
 
     // shuffle the deck
     public Deck shuffle() {
         Collections.shuffle(deck);
-        return this; // make fluent
+        return this; // jack - make fluent
     }
 
     // deal cards to players
     public Deck deal(Collection<Player> players, int handSize) {  // gives option to  choose how many cards are dealt
-        // java 8 streams syntax. A more functional style
+        // jack - java 8 streams syntax. A more functional style
         IntStream.range(0, handSize)
                 .forEach(i -> players.forEach(player -> drawCard(player, true)));
 
@@ -94,7 +108,7 @@ public class Deck {
 
     private List<Card> buildDeck() {
 
-        // java 1.8 - streams style. A more functional approach
+        // jack - java 1.8 - streams style. A more functional approach
         return stream(Card.Suit.values())
                 .flatMap(suit -> stream(Card.Rank.values()).map(rank -> new Card(suit, rank)))
                 .collect(Collectors.toList());
