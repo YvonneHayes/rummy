@@ -1,0 +1,14 @@
+apply plugin: 'java'
+
+
+description = 'A rummy game'
+version = '1.0'
+
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'junit:junit:4.12'
+}

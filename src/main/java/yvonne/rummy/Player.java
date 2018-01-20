@@ -1,3 +1,4 @@
+package yvonne.rummy;
 
 import java.util.Collection;
 import java.util.LinkedList;
@@ -7,6 +8,9 @@ import java.util.LinkedList;
  */
 
 public class Player {
+
+    // jack - collection does not prevent duplicates. Set avoids duplicates. Collection is an interface implemented by
+    // both Set and List. By returning something as collection you can hide the type of Collection and its implementation.
 
     // creating a hand
     private final Collection<Card> hand = new LinkedList<>(); // Collection because it does not allow duplicates; LinkedList better than ArrayList for iterating over items and inserting                                                                                 and removing them
