@@ -1,0 +1,6 @@
+build
+gradle
+*iml
+*iws
+.idea
+.gradle

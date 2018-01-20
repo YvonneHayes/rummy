@@ -1,0 +1,7 @@
+apply plugin: 'java'
+
+
+description = 'A rummy game'
+version = '1.0'
+
+

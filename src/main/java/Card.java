@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Collections;
 
 /**
  * Created by yvonnehayes on 1/18/18.
@@ -31,7 +32,7 @@ public class Card {
     }
 
     // putting Rank into an Array as well for easier use in Rummy.java
-    public static final List<Rank> rankOrder = new ArrayList<>(Rank.values());
+    public static final List<Rank> rankOrder = Collections.
 
     // instantiating suit and rank
     private Suit suit;

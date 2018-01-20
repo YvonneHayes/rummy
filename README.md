@@ -7,4 +7,8 @@ against edge cases in winning conditions, implement methods to actually start a 
 progress of the game
 
 
+# -- jack
+To build execute gradle via ./gradlew build
+
+
 
